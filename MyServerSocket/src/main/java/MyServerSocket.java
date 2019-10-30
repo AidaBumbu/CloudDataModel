@@ -1,8 +1,14 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.*;
+
+//Todo I can't import none of those classes
+import com.google.gson.GsonBuilder;
+
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
 
 public class MyServerSocket {
     private ServerSocket server;
@@ -35,7 +41,51 @@ public class MyServerSocket {
     public int getPort() {
         return this.server.getLocalPort();
     }
+
+    public List<String[] > generateList(String filePath){
+        String line = "";
+        String cvsSplitBy = ",";
+        List<String[]> dataSet = new LinkedList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            while ((line = br.readLine()) != null) {
+                // use comma as separator
+                String[] dataLine = line.split(cvsSplitBy);
+                dataSet.add(dataLine);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return dataSet;
+    }
+
+    //https://www.novixys.com/blog/convert-csv-json-java/
+    //TODO: I tried that but i'm having trouble with the dependencies
+    private void csvToJSON(String csvFile) throws Exception {
+        try (InputStream in = new FileInputStream(csvFile);) {
+            CSV csv = new CSV(true, ',', in);
+            List<String> fieldNames = null;
+            if ( csv.hasNext() ) fieldNames = new ArrayList<>(csv.next());
+            List<Map<String,String>> list = new ArrayList<>();
+            while (csv.hasNext()) {
+                List<String> x = csv.next();
+                Map<String,String> obj = new LinkedHashMap<>();
+                for (int i = 0 ; i < fieldNames.size() ; i++) {
+                    obj.put(fieldNames.get(i), x.get(i));
+                }
+                list.add(obj);
+            }
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.enable(SerializationFeature.INDENT_OUTPUT);
+            mapper.writeValue(System.out, list);
+        }
+
+    }
+
     public static void main(String[] args) throws Exception {
+
+
         MyServerSocket app = new MyServerSocket(args[0]);   //instantiate server
         System.out.println("\r\nRunning Server: " +
                 "Host=" + app.getSocketAddress().getHostAddress() +
