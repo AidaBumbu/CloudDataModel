@@ -1,3 +1,6 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+
 import java.io.*;
 import java.net.InetAddress;
 import java.net.ServerSocket;
@@ -5,10 +8,6 @@ import java.net.Socket;
 import java.util.*;
 
 //Todo I can't import none of those classes
-import com.google.gson.GsonBuilder;
-
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.core.JsonGenerator;
 
 public class MyServerSocket {
     private ServerSocket server;
@@ -64,12 +63,12 @@ public class MyServerSocket {
     //TODO: I tried that but i'm having trouble with the dependencies
     private void csvToJSON(String csvFile) throws Exception {
         try (InputStream in = new FileInputStream(csvFile);) {
-            CSV csv = new CSV(true, ',', in);
-            List<String> fieldNames = null;
-            if ( csv.hasNext() ) fieldNames = new ArrayList<>(csv.next());
+            Scanner csv = new Scanner(csvFile);
+            ArrayList<String> fieldNames = null;
+            if ( csv.hasNext() ) fieldNames = new ArrayList<String>(Collections.singleton(csv.next()));
             List<Map<String,String>> list = new ArrayList<>();
             while (csv.hasNext()) {
-                List<String> x = csv.next();
+                List<String> x = Collections.singletonList(csv.next());
                 Map<String,String> obj = new LinkedHashMap<>();
                 for (int i = 0 ; i < fieldNames.size() ; i++) {
                     obj.put(fieldNames.get(i), x.get(i));
