@@ -2,6 +2,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
@@ -13,12 +14,20 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class MyServerSocket {
-    private static String DVDTestfile = "..'\'WorkloadData'\'DVD-testing";
+
+    //Provide Workload Data Files
+    private static final String ROOT_FOLDER = System.getProperty("user.dir");
+    private static final String DATA_FOLDER = ROOT_FOLDER.substring(0, ROOT_FOLDER.length()-14) + "Workload Data" + File.separator ;
+    private static final String DVD_TEST_FILE = DATA_FOLDER + "DVD-testing.csv";
+    private static final String DVD_TRAIN_FILE = DATA_FOLDER + "DVD-training.csv";
+    private static final String NDBENCH_TEST_FILE = DATA_FOLDER + "NDBench-testing.csv";
+    private static final String NDBENCH_TRAIN_FILE = DATA_FOLDER + "NDBench-training.csv";
     private ServerSocket server;
-    private List<Workload> DVDTesting = new LinkedList<>();
-    private List<Workload> DVDTraining = new LinkedList<>();
-    private List<Workload> NDBenchTesting = new LinkedList<>();
-    private List<Workload> NDBenchTraining = new LinkedList<>();
+
+    private static List<Workload> DVDTesting = new LinkedList<>();
+    private static List<Workload> DVDTraining = new LinkedList<>();
+    private static List<Workload> NDBenchTesting = new LinkedList<>();
+    private static List<Workload> NDBenchTraining = new LinkedList<>();
 
     private MyServerSocket(String ipAddress) throws Exception {
         if (ipAddress != null && !ipAddress.isEmpty())
@@ -38,7 +47,6 @@ public class MyServerSocket {
         while ((data = in.readLine()) != null) {
             System.out.println("\r\nMessage from " + clientAddress + ": " + data);
         }
-
     }
 
     private InetAddress getSocketAddress() {
@@ -49,8 +57,7 @@ public class MyServerSocket {
         return this.server.getLocalPort();
     }
 
-
-    private List<Workload> csvToJSON(String csvFile) throws Exception {
+    private static List<Workload> csvToJSON(String csvFile) throws Exception {
         Pattern pattern = Pattern.compile(",");
         try (BufferedReader in = new BufferedReader(new FileReader(csvFile))) {
             List<Workload> workloads = in.lines().skip(1).map(line -> {
@@ -67,13 +74,15 @@ public class MyServerSocket {
 
     public static void main(String[] args) throws Exception {
 
+        DVDTesting = csvToJSON(DVD_TEST_FILE);
+        DVDTraining = csvToJSON(DVD_TRAIN_FILE);
+        NDBenchTesting = csvToJSON(NDBENCH_TEST_FILE);
+        NDBenchTraining = csvToJSON(NDBENCH_TRAIN_FILE);
 
-
-        MyServerSocket app = new MyServerSocket(args[0]);   //instantiate server
+        MyServerSocket app = new MyServerSocket(null);   //instantiate server
         System.out.println("\r\nRunning Server: " +
                 "Host=" + app.getSocketAddress().getHostAddress() +
                 " Port=" + app.getPort());
-
         app.listen();
     }
 
