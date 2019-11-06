@@ -1,14 +1,16 @@
+import java.util.List;
+
 public class RFW {
-    enum Type { DVD, NDBench; }
-    enum Metric {CPU, NetworkIn, NetworkOut, Memory;}
+    enum Type { DVD, NDBench }
+    enum Metric {CPU, NetworkIn, NetworkOut, Memory}
     private static int ID = 0;
     private Type benchmark;
-    private Metric workloadMetric;
+    private List<Metric> workloadMetric;
     private int batchUnit;
     private int batchID;
     private int batchSize;
 
-    public RFW(Type benchmark, Metric workloadMetric, int batchUnit, int batchID, int batchSize) {
+    public RFW(Type benchmark, List<Metric> workloadMetric, int batchUnit, int batchID, int batchSize) {
         ID = ID + 1;
         this.benchmark = benchmark;
         this.workloadMetric = workloadMetric;
@@ -33,11 +35,11 @@ public class RFW {
         this.benchmark = benchmark;
     }
 
-    public Metric getWorkloadMetric() {
+    public List<Metric> getWorkloadMetric() {
         return workloadMetric;
     }
 
-    public void setWorkloadMetric(Metric workloadMetric) {
+    public void setWorkloadMetric(List<Metric> workloadMetric) {
         this.workloadMetric = workloadMetric;
     }
 
