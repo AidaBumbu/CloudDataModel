@@ -1,6 +1,18 @@
 public class RFW {
-    enum Type { DVD, NDBench; }
-    enum Metric {CPU, NetworkIn, NetworkOut, Memory;}
+    enum Type { DVD(1), NDBench(2);
+        private int value;
+
+        private Type(int value){
+            this.value = value;
+        }
+    }
+    enum Metric {CPU(1), NetworkIn(2), NetworkOut(3), Memory(4);
+        private int value;
+
+        private Metric(int value){
+            this.value = value;
+        }
+    }
     private static int ID = 0;
     private Type benchmark;
     private Metric workloadMetric;
@@ -8,10 +20,10 @@ public class RFW {
     private int batchID;
     private int batchSize;
 
-    public RFW(Type benchmark, Metric workloadMetric, int batchUnit, int batchID, int batchSize) {
+    public RFW(int benchmark, int workloadMetric, int batchUnit, int batchID, int batchSize) {
         ID = ID + 1;
-        this.benchmark = benchmark;
-        this.workloadMetric = workloadMetric;
+        this.benchmark.value = benchmark;
+        this.workloadMetric.value = workloadMetric;
         this.batchUnit = batchUnit;
         this.batchID = batchID;
         this.batchSize = batchSize;
@@ -35,6 +47,13 @@ public class RFW {
 
     public Metric getWorkloadMetric() {
         return workloadMetric;
+    }
+
+    public int getWrkLdMetric() {
+        return workloadMetric.value;
+    }
+    public int getBenchType() {
+        return benchmark.value;
     }
 
     public void setWorkloadMetric(Metric workloadMetric) {

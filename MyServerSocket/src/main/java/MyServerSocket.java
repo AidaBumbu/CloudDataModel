@@ -1,5 +1,6 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import commProto.Communicate;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -35,6 +36,24 @@ public class MyServerSocket {
             this.server = new ServerSocket(0, 1, InetAddress.getLocalHost());
     }
 
+    private RFW splitRFW(Communicate.batch_request RFW_R){
+        RFW batch = new RFW(RFW_R.getBenchType(),RFW_R.getWrkLdMetric(), RFW_R.getBatchUnit(),RFW_R.getBatchID(),RFW_R.getBatchSize());
+        return batch;
+    }
+
+    private void processBatch (List<Workload> wkld, RFW batch){
+        /*
+        * read values stored in batch
+        * perform required tasks in the list
+        * tasks:
+        * - create the batches based on batch unit
+        * - counter for batch numbers
+        * etc etc
+        * make sure batch unit > batch size
+        * also make sure you never exceed list size.
+        * */
+    }
+
     private void listen() throws Exception {
         String data = null;
         Socket client = this.server.accept();
@@ -43,6 +62,8 @@ public class MyServerSocket {
 
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(client.getInputStream()));
+        Communicate.batch_request RFW_Request = Communicate.batch_request.parseFrom(client.getInputStream());
+
         while ((data = in.readLine()) != null) {
             System.out.println("\r\nMessage from " + clientAddress + ": " + data);
         }
@@ -70,6 +91,8 @@ public class MyServerSocket {
             return workloads;
         }
     }
+
+
 
     public static void main(String[] args) throws Exception {
 
