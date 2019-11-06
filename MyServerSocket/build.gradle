@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group '40032107'
+group '27779550,40032107'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
@@ -11,9 +11,11 @@ repositories {
     mavenCentral()
 }
 
+
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.10.0.pr3'
     compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.8.9'
+    compile group: 'com.google.protobuf', name: 'protobuf-java', version: '3.9.0'
 
 }

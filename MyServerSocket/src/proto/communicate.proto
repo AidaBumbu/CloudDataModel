@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_package = "commProto";
+
+service batch {
+    rpc Batcher (batch_request) returns (batch_ans);
+
+}
+
+message batch_request{
+    int32 RFW_ID= 1;
+    int32 benchType = 2;
+    int32 WrkLdMetric = 3;
+    int32 BatchUnit = 4;
+    int32 BatchID = 5;
+    int32 BatchSize = 6;
+}
+
+message batch_ans{
+    int32 RFW_ID = 1;
+    int32 last_Batch_ID = 2;
+    int32 samples_Requested = 3;
+}

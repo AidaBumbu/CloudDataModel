@@ -2,12 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f8f3841-0198-4792-a6c9-ad6cd884cc4a" name="Default Changelist" comment="Created RFD and RFW classes for Server">
-      <change afterPath="$PROJECT_DIR$/src/main/java/RFD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RFW.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/protobuf_java_3_10_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/commProto/Communicate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/commProto/Communicate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/protobuf-java-3.10.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/proto/communicate.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/protobuf/bin/protoc.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/any.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/api.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/compiler/plugin.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/descriptor.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/duration.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/empty.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/field_mask.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/source_context.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/struct.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/timestamp.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/type.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/wrappers.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/protobuf/readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/MyServerSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/MyServerSocket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/MyServerSocket.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MyServerSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyServerSocket.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,17 +52,25 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1St32hZn33xiFt6S5VH7NrlCAl8" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/protobuf-java-3.10.0.jar!/" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="project.structure.side.proportion" value="0.54367816" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\e_khei\Concordia_Projects\CloudDataModel\MyServerSocket\src\main\java\commProto" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -60,10 +86,15 @@
   </component>
   <component name="RunManager">
     <configuration name="MyServerSocket" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11.0.4" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
       <option name="MAIN_CLASS_NAME" value="MyServerSocket" />
       <module name="Server.main" />
+      <shortenClasspath name="MANIFEST" />
       <method v="2">
         <option name="Make" enabled="true" />
+        <option name="MakeProject" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -71,6 +102,12 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration default="true" type="JarApplication">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/src/main/java/protobuf-java-3.10.0.jar" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <module name="Server.main" />
+      <method v="2" />
     </configuration>
   </component>
   <component name="SvnConfiguration">
@@ -85,6 +122,8 @@
       <updated>1572368858024</updated>
       <workItem from="1572656304677" duration="148000" />
       <workItem from="1572656577279" duration="4437000" />
+      <workItem from="1573001263229" duration="192000" />
+      <workItem from="1573001468088" duration="10477000" />
     </task>
     <task id="LOCAL-00001" summary="Created workload object&#10;Read from csv to json POJO">
       <created>1572910014920</created>
@@ -113,6 +152,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Created workload object&#10;Read from csv to json POJO" />
     <MESSAGE value="Created RFD and RFW classes for Server" />
     <option name="LAST_COMMIT_MESSAGE" value="Created RFD and RFW classes for Server" />

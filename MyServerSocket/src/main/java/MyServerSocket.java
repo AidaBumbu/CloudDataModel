@@ -23,7 +23,6 @@ public class MyServerSocket {
     private static final String NDBENCH_TEST_FILE = DATA_FOLDER + "NDBench-testing.csv";
     private static final String NDBENCH_TRAIN_FILE = DATA_FOLDER + "NDBench-training.csv";
     private ServerSocket server;
-
     private static List<Workload> DVDTesting = new LinkedList<>();
     private static List<Workload> DVDTraining = new LinkedList<>();
     private static List<Workload> NDBenchTesting = new LinkedList<>();
