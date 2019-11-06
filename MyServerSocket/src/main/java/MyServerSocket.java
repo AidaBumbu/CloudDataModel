@@ -52,6 +52,23 @@ public class MyServerSocket {
         * make sure batch unit > batch size
         * also make sure you never exceed list size.
         * */
+
+        int bUnit = batch.getBatchUnit();
+        int bSize = batch.getBatchSize();
+        List<List<Workload>> batchAns = new LinkedList<>();
+        List<Workload> singleAns = new LinkedList<>();
+        int sizeCounter = 0;
+        while(sizeCounter < bSize){
+            for(int downCount = (sizeCounter+1)*bUnit; downCount > bUnit*sizeCounter; downCount--){ // set downCount to top value of
+                singleAns.add(wkld.get((sizeCounter+1)*bUnit-downCount));                           // add elements to linkedlist from start of list.
+            }
+            batchAns.add(singleAns);
+            singleAns.clear();
+            sizeCounter++;
+        }                       // the list of batches has been made and can be returned. sizeCounter is how many batches exist.
+        
+
+
     }
 
     private void listen() throws Exception {
@@ -63,7 +80,7 @@ public class MyServerSocket {
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(client.getInputStream()));
         Communicate.batch_request RFW_Request = Communicate.batch_request.parseFrom(client.getInputStream());
-
+        RFW newBatch = splitRFW(RFW_Request);
         while ((data = in.readLine()) != null) {
             System.out.println("\r\nMessage from " + clientAddress + ": " + data);
         }
