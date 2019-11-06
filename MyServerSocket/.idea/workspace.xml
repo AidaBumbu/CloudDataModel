@@ -1,32 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8f8f3841-0198-4792-a6c9-ad6cd884cc4a" name="Default Changelist" comment="Created RFD and RFW classes for Server">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/protobuf_java_3_10_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/commProto/Communicate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/commProto/Communicate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/protobuf-java-3.10.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/proto/communicate.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/protobuf/bin/protoc.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/any.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/api.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/compiler/plugin.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/descriptor.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/duration.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/empty.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/field_mask.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/source_context.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/struct.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/timestamp.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/type.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/protobuf/include/google/protobuf/wrappers.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/protobuf/readme.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/MyServerSocket.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyServerSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyServerSocket.java" afterDir="false" />
-    </list>
+    <list default="true" id="8f8f3841-0198-4792-a6c9-ad6cd884cc4a" name="Default Changelist" comment="Created RFD and RFW classes for Server" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,11 +36,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/protobuf-java-3.10.0.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/commProto" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.54367816" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+    <property name="settings.editor.selected.configurable" value="io.protostuff.jetbrains.plugin.settings.ProtobufSettingsConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -123,7 +98,7 @@
       <workItem from="1572656304677" duration="148000" />
       <workItem from="1572656577279" duration="4437000" />
       <workItem from="1573001263229" duration="192000" />
-      <workItem from="1573001468088" duration="10477000" />
+      <workItem from="1573001468088" duration="10739000" />
     </task>
     <task id="LOCAL-00001" summary="Created workload object&#10;Read from csv to json POJO">
       <created>1572910014920</created>
