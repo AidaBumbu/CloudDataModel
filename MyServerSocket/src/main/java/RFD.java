@@ -3,9 +3,9 @@ import java.util.List;
 public class RFD {
     private int RFWid;
     private int lastBatchID;
-    private List<Double> samplesRequested;
+    private List<List<Double>> samplesRequested;
 
-    public RFD(int RFWid, int lastBatchID, List<Double> samplesRequested) {
+    public RFD(int RFWid, int lastBatchID, List<List<Double>> samplesRequested) {
         this.RFWid = RFWid;
         this.lastBatchID = lastBatchID;
         this.samplesRequested = samplesRequested;
@@ -27,11 +27,11 @@ public class RFD {
         this.lastBatchID = lastBatchID;
     }
 
-    public List<Double> getSamplesRequested() {
+    public List<List<Double>> getSamplesRequested() {
         return samplesRequested;
     }
 
-    public void setSamplesRequested(List<Double> samplesRequested) {
+    public void setSamplesRequested(List<List<Double>> samplesRequested) {
         this.samplesRequested = samplesRequested;
     }
 }

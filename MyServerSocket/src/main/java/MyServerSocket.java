@@ -67,7 +67,7 @@ public class MyServerSocket {
             singleAns.clear();
             sizeCounter++;
         }                       // the list of batches has been made and can be returned. sizeCounter is how many batches exist.
-        RFD ans = new RFD(batch.getID(),sizeCounter+1,singleAns);
+        RFD ans = new RFD(batch.getID(),sizeCounter+1,batchAns);
         return ans;
     }
 
@@ -84,6 +84,22 @@ public class MyServerSocket {
         Communicate.batch_request RFW_Request = Communicate.batch_request.parseFrom(client.getInputStream());
 
         RFW newBatch = splitRFW(RFW_Request);
+        List<Workload> currentList;
+        switch (newBatch.getBenchType()){
+            case 1:
+                currentList = DVDTesting;
+                break;
+            case 2:
+                currentList = DVDTraining;
+                break;
+            case 3:
+                currentList = NDBenchTesting;
+                break;
+            default:
+                currentList = NDBenchTraining;
+                break;
+        }
+        RFD ansServer = processBatch(currentList,newBatch);
         while ((data = in.readLine()) != null) {
             System.out.println("\r\nMessage from " + clientAddress + ": " + data);
         }
