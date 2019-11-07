@@ -1,7 +1,7 @@
 import java.util.List;
 
 public class RFW {
-    enum Type { DVD, NDBench }
+    enum Type { DVDtest, DVDtrain, NDBenchTest, NDBenchTrain }
     enum Metric {CPU, NetworkIn, NetworkOut, Memory}
     private static int ID = 0;
     private Type benchmark;

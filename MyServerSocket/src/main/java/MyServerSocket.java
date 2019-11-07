@@ -1,10 +1,6 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -49,11 +45,16 @@ public class MyServerSocket {
         while ((data = in.readLine()) != null) {
             System.out.println("\r\nMessage from " + clientAddress + ": " + data); //For testing purpose, can be removed afterward
             RFW request = JSONtoRequest(data); //deserialize json to request
-            RFD response = getBatch(request); //fetch batch and data for request
-            String sResponse = responseToJSON(response); //Serialize the response
-            //Need to send to client the response
-
+            respond(request);
         }
+    }
+
+    private void respond(RFW request) throws Exception {
+        Socket client = this.server.accept();
+        DataOutputStream outToClient = new DataOutputStream(client.getOutputStream());
+        RFD response = getBatch(request); //fetch batch and data for request
+        String sResponse = responseToJSON(response); //Serialize the response
+        outToClient.writeBytes(sResponse);
     }
 
     private InetAddress getSocketAddress() {
@@ -72,8 +73,8 @@ public class MyServerSocket {
                 return new Workload(Integer.parseInt(x[0]), Integer.parseInt(x[1]), Integer.parseInt(x[2]),
                         Double.parseDouble(x[3]), Double.parseDouble(x[4]));
             }).collect(Collectors.toList());
-            mapper.enable(SerializationFeature.INDENT_OUTPUT);
-            mapper.writeValue(System.out, workloads);
+            //mapper.enable(SerializationFeature.INDENT_OUTPUT);
+            //mapper.writeValue(System.out, workloads);
             return workloads;
         }
     }
