@@ -2,7 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e891d1e4-835c-45de-827c-721e9892c9a2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MyClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyClientSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyServerSocket/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyServerSocket/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyServerSocket/out/production/classes/MyServerSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/out/production/classes/MyServerSocket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyServerSocket/out/production/classes/RFD.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/out/production/classes/RFD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyServerSocket/out/production/classes/Workload.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/out/production/classes/Workload.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyServerSocket/out/production/classes/commProto/Communicate$batch_ans$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/out/production/classes/commProto/Communicate$batch_ans$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyServerSocket/out/production/classes/commProto/Communicate$batch_ans$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/out/production/classes/commProto/Communicate$batch_ans$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyServerSocket/out/production/classes/commProto/Communicate$batch_ans.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/out/production/classes/commProto/Communicate$batch_ans.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyServerSocket/out/production/classes/commProto/Communicate$batch_ansOrBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/out/production/classes/commProto/Communicate$batch_ansOrBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyServerSocket/out/production/classes/commProto/Communicate.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/out/production/classes/commProto/Communicate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyServerSocket/src/main/java/MyServerSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/src/main/java/MyServerSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyServerSocket/src/main/java/RFD.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/src/main/java/RFD.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,8 +38,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MyServerSocket" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />

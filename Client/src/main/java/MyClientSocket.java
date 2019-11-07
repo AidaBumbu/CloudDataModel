@@ -39,7 +39,6 @@ public class dataAnalysis {
         private long NetworkOut_Average;
         private long MemoryUtilization_Average;
         private long Final_Target;
-
         dataAnalysis(long a, long b, long c, long d, long e){
             CPUUtilization_Average = a;
             NetworkIn_Average = b;

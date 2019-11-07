@@ -100,15 +100,26 @@ public class MyServerSocket {
                 break;
         }
         RFD ansServer = processBatch(currentList,newBatch);
-        Communicate.batch_ans.Builder answer = new Communicate.batch_ans.Builder();
-        answer.setLastBatchID(ansServer.getLastBatchID());
-        answer.setRFWID(ansServer.getRFWid());
-        answer.setSamplesRequested(ansServer.getSamplesRequested().toString());
+
+        String reply = ansServer.toString();
+        //@Aida please try typing the sending function here.
+
+
+        
+//        Communicate.batch_ans.Builder answer = Communicate.batch_ans.newBuilder();
+//        answer.setLastBatchID(ansServer.getLastBatchID());
+//        answer.setRFWID(ansServer.getRFWid());
+//        answer.setSamplesRequested(ansServer.getSamplesRequested().toString());
+//        Communicate.batch_ans rep = answer.build();
+//        StreamObserver<Communicate.batch_ans> resp;
+
         while ((data = in.readLine()) != null) {
             System.out.println("\r\nMessage from " + clientAddress + ": " + data);
         }
         //Serialize to byte[].
         // Send serialized byte[] to client via gRPC.
+
+
     }
 
     private InetAddress getSocketAddress() {
