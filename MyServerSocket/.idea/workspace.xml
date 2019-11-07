@@ -3,10 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8f8f3841-0198-4792-a6c9-ad6cd884cc4a" name="Default Changelist" comment="Created RFD and RFW classes for Server">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/RFW$Metric.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/RFW$Metric.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/RFW$Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/RFW$Type.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/RFW.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/RFW.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/MyServerSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/MyServerSocket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/commProto/Communicate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/commProto/Communicate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MyServerSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyServerSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RFD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RFD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Workload.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Workload.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/proto/communicate.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/proto/communicate.proto" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +45,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/commProto" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.54367816" />
     <property name="settings.editor.selected.configurable" value="io.protostuff.jetbrains.plugin.settings.ProtobufSettingsConfigurable" />
@@ -67,12 +69,12 @@
   </component>
   <component name="RunManager">
     <configuration name="MyServerSocket" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="11.0.4" />
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
       <option name="MAIN_CLASS_NAME" value="MyServerSocket" />
       <module name="Server.main" />
-      <shortenClasspath name="MANIFEST" />
+      <shortenClasspath name="NONE" />
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="MakeProject" enabled="true" />
@@ -137,5 +139,16 @@
     <MESSAGE value="Created workload object&#10;Read from csv to json POJO" />
     <MESSAGE value="Created RFD and RFW classes for Server" />
     <option name="LAST_COMMIT_MESSAGE" value="Created RFD and RFW classes for Server" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/MyServerSocket.java</url>
+          <line>127</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

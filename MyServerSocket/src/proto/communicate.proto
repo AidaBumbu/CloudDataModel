@@ -19,5 +19,5 @@ message batch_request{
 message batch_ans{
     int32 RFW_ID = 1;
     int32 last_Batch_ID = 2;
-    int32 samples_Requested = 3;
+    string samples_Requested = 3;
 }

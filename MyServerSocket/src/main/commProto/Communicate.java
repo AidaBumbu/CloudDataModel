@@ -857,10 +857,16 @@ public final class Communicate {
     int getLastBatchID();
 
     /**
-     * <code>int32 samples_Requested = 3;</code>
+     * <code>string samples_Requested = 3;</code>
      * @return The samplesRequested.
      */
-    int getSamplesRequested();
+    java.lang.String getSamplesRequested();
+    /**
+     * <code>string samples_Requested = 3;</code>
+     * @return The bytes for samplesRequested.
+     */
+    com.google.protobuf.ByteString
+        getSamplesRequestedBytes();
   }
   /**
    * Protobuf type {@code batch_ans}
@@ -875,6 +881,7 @@ public final class Communicate {
       super(builder);
     }
     private batch_ans() {
+      samplesRequested_ = "";
     }
 
     @java.lang.Override
@@ -917,9 +924,10 @@ public final class Communicate {
               lastBatchID_ = input.readInt32();
               break;
             }
-            case 24: {
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              samplesRequested_ = input.readInt32();
+              samplesRequested_ = s;
               break;
             }
             default: {
@@ -975,13 +983,39 @@ public final class Communicate {
     }
 
     public static final int SAMPLES_REQUESTED_FIELD_NUMBER = 3;
-    private int samplesRequested_;
+    private volatile java.lang.Object samplesRequested_;
     /**
-     * <code>int32 samples_Requested = 3;</code>
+     * <code>string samples_Requested = 3;</code>
      * @return The samplesRequested.
      */
-    public int getSamplesRequested() {
-      return samplesRequested_;
+    public java.lang.String getSamplesRequested() {
+      java.lang.Object ref = samplesRequested_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        samplesRequested_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string samples_Requested = 3;</code>
+     * @return The bytes for samplesRequested.
+     */
+    public com.google.protobuf.ByteString
+        getSamplesRequestedBytes() {
+      java.lang.Object ref = samplesRequested_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        samplesRequested_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1004,8 +1038,8 @@ public final class Communicate {
       if (lastBatchID_ != 0) {
         output.writeInt32(2, lastBatchID_);
       }
-      if (samplesRequested_ != 0) {
-        output.writeInt32(3, samplesRequested_);
+      if (!getSamplesRequestedBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, samplesRequested_);
       }
       unknownFields.writeTo(output);
     }
@@ -1024,9 +1058,8 @@ public final class Communicate {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, lastBatchID_);
       }
-      if (samplesRequested_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, samplesRequested_);
+      if (!getSamplesRequestedBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, samplesRequested_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1047,8 +1080,8 @@ public final class Communicate {
           != other.getRFWID()) return false;
       if (getLastBatchID()
           != other.getLastBatchID()) return false;
-      if (getSamplesRequested()
-          != other.getSamplesRequested()) return false;
+      if (!getSamplesRequested()
+          .equals(other.getSamplesRequested())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1065,7 +1098,7 @@ public final class Communicate {
       hash = (37 * hash) + LAST_BATCH_ID_FIELD_NUMBER;
       hash = (53 * hash) + getLastBatchID();
       hash = (37 * hash) + SAMPLES_REQUESTED_FIELD_NUMBER;
-      hash = (53 * hash) + getSamplesRequested();
+      hash = (53 * hash) + getSamplesRequested().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1203,7 +1236,7 @@ public final class Communicate {
 
         lastBatchID_ = 0;
 
-        samplesRequested_ = 0;
+        samplesRequested_ = "";
 
         return this;
       }
@@ -1288,8 +1321,9 @@ public final class Communicate {
         if (other.getLastBatchID() != 0) {
           setLastBatchID(other.getLastBatchID());
         }
-        if (other.getSamplesRequested() != 0) {
-          setSamplesRequested(other.getSamplesRequested());
+        if (!other.getSamplesRequested().isEmpty()) {
+          samplesRequested_ = other.samplesRequested_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1380,32 +1414,78 @@ public final class Communicate {
         return this;
       }
 
-      private int samplesRequested_ ;
+      private java.lang.Object samplesRequested_ = "";
       /**
-       * <code>int32 samples_Requested = 3;</code>
+       * <code>string samples_Requested = 3;</code>
        * @return The samplesRequested.
        */
-      public int getSamplesRequested() {
-        return samplesRequested_;
+      public java.lang.String getSamplesRequested() {
+        java.lang.Object ref = samplesRequested_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          samplesRequested_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int32 samples_Requested = 3;</code>
+       * <code>string samples_Requested = 3;</code>
+       * @return The bytes for samplesRequested.
+       */
+      public com.google.protobuf.ByteString
+          getSamplesRequestedBytes() {
+        java.lang.Object ref = samplesRequested_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          samplesRequested_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string samples_Requested = 3;</code>
        * @param value The samplesRequested to set.
        * @return This builder for chaining.
        */
-      public Builder setSamplesRequested(int value) {
-        
+      public Builder setSamplesRequested(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         samplesRequested_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 samples_Requested = 3;</code>
+       * <code>string samples_Requested = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearSamplesRequested() {
         
-        samplesRequested_ = 0;
+        samplesRequested_ = getDefaultInstance().getSamplesRequested();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string samples_Requested = 3;</code>
+       * @param value The bytes for samplesRequested to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSamplesRequestedBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        samplesRequested_ = value;
         onChanged();
         return this;
       }
@@ -1486,7 +1566,7 @@ public final class Communicate {
       "Metric\030\003 \001(\005\022\021\n\tBatchUnit\030\004 \001(\005\022\017\n\007Batch" +
       "ID\030\005 \001(\005\022\021\n\tBatchSize\030\006 \001(\005\"M\n\tbatch_ans" +
       "\022\016\n\006RFW_ID\030\001 \001(\005\022\025\n\rlast_Batch_ID\030\002 \001(\005\022" +
-      "\031\n\021samples_Requested\030\003 \001(\0052.\n\005batch\022%\n\007B" +
+      "\031\n\021samples_Requested\030\003 \001(\t2.\n\005batch\022%\n\007B" +
       "atcher\022\016.batch_request\032\n.batch_ansB\013\n\tco" +
       "mmProtob\006proto3"
     };

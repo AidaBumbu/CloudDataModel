@@ -52,4 +52,18 @@ public class Workload {
     public void setFinal_Target(double final_Target) {
         Final_Target = final_Target;
     }
+
+    public double benchGet(int val) {
+        switch(val){
+            case 1:
+                return getCPUUtilization_Average();
+            case 2:
+                return getNetworkIn_Average();
+            case 3:
+                return getNetworkOut_Average();
+            case 4:
+                return getMemoryUtilization_Average();
+        }
+        return 0;
+    }
 }
