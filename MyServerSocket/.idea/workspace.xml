@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8f8f3841-0198-4792-a6c9-ad6cd884cc4a" name="Default Changelist" comment="Function deserialize Json to request&#10;Wrote TODO and comments on what needs to be done">
+    <list default="true" id="8f8f3841-0198-4792-a6c9-ad6cd884cc4a" name="Default Changelist" comment="Updated RFW and RFD formats&#10;Half implemented getBatch&#10;Function getListOfMetrics">
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/MyServerSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/MyServerSocket.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MyServerSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyServerSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RFW.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RFW.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +40,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/COEN352-ASN#3-Drivers/Eclipse/Assignment3" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -55,7 +58,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.MyServerSocket [dependencies]">
     <configuration name="MyServerSocket" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MyServerSocket" />
       <module name="Server.main" />
@@ -69,6 +72,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MyServerSocket [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.MyServerSocket [dependencies]" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -97,7 +124,28 @@
       <option name="project" value="LOCAL" />
       <updated>1572992930437</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Function deserialize Json to request&#10;Function serialize response to Json&#10;Wrote TODO and comments on what needs to be done">
+      <created>1573011468326</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1573011468326</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added test/train for DVD and NDBench&#10;Added response function for client">
+      <created>1573168764406</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1573168764406</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Updated RFW and RFD formats&#10;Half implemented getBatch&#10;Function getListOfMetrics">
+      <created>1573175721567</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1573175721567</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,6 +168,20 @@
     <MESSAGE value="Created workload object&#10;Read from csv to json POJO" />
     <MESSAGE value="Created RFD and RFW classes for Server" />
     <MESSAGE value="Function deserialize Json to request&#10;Wrote TODO and comments on what needs to be done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Function deserialize Json to request&#10;Wrote TODO and comments on what needs to be done" />
+    <MESSAGE value="Function deserialize Json to request&#10;Function serialize response to Json&#10;Wrote TODO and comments on what needs to be done" />
+    <MESSAGE value="Added test/train for DVD and NDBench&#10;Added response function for client" />
+    <MESSAGE value="Updated RFW and RFD formats&#10;Half implemented getBatch&#10;Function getListOfMetrics" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated RFW and RFD formats&#10;Half implemented getBatch&#10;Function getListOfMetrics" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/MyServerSocket.java</url>
+          <line>139</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

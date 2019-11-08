@@ -1,4 +1,8 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 import java.io.*;
 import java.net.InetAddress;
@@ -14,16 +18,11 @@ public class MyServerSocket {
     //Provide Workload Data Files
     private static final String ROOT_FOLDER = System.getProperty("user.dir");
     private static final String DATA_FOLDER = ROOT_FOLDER.substring(0, ROOT_FOLDER.length()-14) + "Workload Data" + File.separator ;
-    private static final String DVD_TEST_FILE = DATA_FOLDER + "DVD-testing.csv";
-    private static final String DVD_TRAIN_FILE = DATA_FOLDER + "DVD-training.csv";
-    private static final String NDBENCH_TEST_FILE = DATA_FOLDER + "NDBench-testing.csv";
-    private static final String NDBENCH_TRAIN_FILE = DATA_FOLDER + "NDBench-training.csv";
+    private static final String DVD_TEST_FILE = DATA_FOLDER + "DVD-testing";
+    private static final String DVD_TRAIN_FILE = DATA_FOLDER + "DVD-training";
+    private static final String NDBENCH_TEST_FILE = DATA_FOLDER + "NDBench-testing";
+    private static final String NDBENCH_TRAIN_FILE = DATA_FOLDER + "NDBench-training";
     private ServerSocket server;
-
-    private static List<Workload> DVDTesting = new LinkedList<>();
-    private static List<Workload> DVDTraining = new LinkedList<>();
-    private static List<Workload> NDBenchTesting = new LinkedList<>();
-    private static List<Workload> NDBenchTraining = new LinkedList<>();
 
     private static ObjectMapper mapper = new ObjectMapper();
 
@@ -44,7 +43,7 @@ public class MyServerSocket {
                 new InputStreamReader(client.getInputStream()));
         while ((data = in.readLine()) != null) {
             System.out.println("\r\nMessage from " + clientAddress + ": " + data); //For testing purpose, can be removed afterward
-            RFW request = JSONtoRequest(data); //deserialize json to request
+            RFW request = mapper.readValue(data, RFW.class);; //deserialize json to request
             respond(request);
         }
     }
@@ -53,7 +52,8 @@ public class MyServerSocket {
         Socket client = this.server.accept();
         DataOutputStream outToClient = new DataOutputStream(client.getOutputStream());
         RFD response = getBatch(request); //fetch batch and data for request
-        String sResponse = responseToJSON(response); //Serialize the response
+
+        String sResponse = mapper.writeValueAsString(response); //Send the response as string
         outToClient.writeBytes(sResponse);
     }
 
@@ -65,7 +65,8 @@ public class MyServerSocket {
         return this.server.getLocalPort();
     }
 
-    private static List<Workload> csvToJSON(String csvFile) throws Exception {
+    private static void csvToJSON(String csvFile, String jsonFile) throws Exception {
+        File newFile = new File(jsonFile);
         Pattern pattern = Pattern.compile(",");
         try (BufferedReader in = new BufferedReader(new FileReader(csvFile))) {
             List<Workload> workloads = in.lines().skip(1).map(line -> {
@@ -73,85 +74,64 @@ public class MyServerSocket {
                 return new Workload(Integer.parseInt(x[0]), Integer.parseInt(x[1]), Integer.parseInt(x[2]),
                         Double.parseDouble(x[3]), Double.parseDouble(x[4]));
             }).collect(Collectors.toList());
-            //mapper.enable(SerializationFeature.INDENT_OUTPUT);
-            //mapper.writeValue(System.out, workloads);
-            return workloads;
+            mapper.enable(SerializationFeature.INDENT_OUTPUT);
+            mapper.writeValue(newFile, workloads); // writes JSON files
         }
     }
 
-    //Deserialize request from client
-    private RFW JSONtoRequest(String json) throws Exception{
-        return mapper.readValue(json, RFW.class);
-    }
+    private static RFD getBatch(RFW request) throws Exception{
 
-    //Serialize response before sending to client
-    private String responseToJSON(RFD response) throws Exception{
-        return mapper.writeValueAsString(response);
-    }
-
-    private static RFD getBatch(RFW request){
-
-        int batchID = request.getBatchID();
+        int batchID = request.getBatchID() - 1; //first batch will be batch 0
         int batchUnit = request.getBatchUnit();
         int batchSize = request.getBatchSize();
+        String jsonFile = null;
         List<Workload> workloadList = new LinkedList<>();
 
         switch (request.getBenchmark()) {
             case dvdtest:
-                workloadList = new LinkedList<>(DVDTesting);
+                jsonFile = DVD_TEST_FILE + ".json";
                 break;
             case dvdtrain:
-                workloadList = new LinkedList<>(DVDTraining);
+                jsonFile = DVD_TRAIN_FILE + ".json";
                 break;
             case ndbenchtest:
-                workloadList = new LinkedList<>(NDBenchTesting);
+                jsonFile = NDBENCH_TEST_FILE + ".json";
                 break;
             case ndbenchtrain:
-                workloadList = new LinkedList<>(NDBenchTraining);
+                jsonFile = NDBENCH_TRAIN_FILE + ".json";
                 break;
         }
 
-        List<Double> listOfMetrics = getListOfMetrics(workloadList, request.getMetric());
+        List<Double> listOfMetrics = getListOfMetrics(jsonFile, request.getMetric());
+        List<Double> batchMetrics = listOfMetrics.subList(batchUnit*batchID, (batchID + batchSize)*batchUnit);
 
-        //Need to find start and end of batch and return only those lines.
-
-        return null; //added this only to not have any error
-
+        return new RFD(request.getID(),batchID+batchSize-1, batchMetrics);
     }
 
-    private static List<Double> getListOfMetrics(List<Workload> workloadList, RFW.Metric metric){
+    private static List<Double> getListOfMetrics(String jsonFile, RFW.Metric metric) throws Exception{
         List<Double> listOfMetrics = new LinkedList<>();
-        switch (metric){
-            case cpu:
-                workloadList.forEach(workload -> {
-                    listOfMetrics.add(Double.valueOf(workload.getCPUUtilization_Average()));
-                });
-                break;
-            case memory:
-                workloadList.forEach(workload -> {
-                    listOfMetrics.add(workload.getMemoryUtilization_Average());
-                });
-                break;
-            case networkin:
-                workloadList.forEach(workload -> {
-                    listOfMetrics.add(Double.valueOf(workload.getNetworkIn_Average()));
-                });
-                break;
-            case networkout:
-                workloadList.forEach(workload -> {
-                    listOfMetrics.add(Double.valueOf(workload.getNetworkOut_Average()));
-                });
-                break;
+        JSONParser jsonParser = new JSONParser();
+        try (FileReader reader = new FileReader(jsonFile))
+        {
+            //Read JSON file
+            Object obj = jsonParser.parse(reader);
+            JSONArray workloadList = (JSONArray) obj;
+
+            //Iterate over array and get the metric
+            workloadList.forEach( workload -> {
+                JSONObject line = (JSONObject) workload;
+                listOfMetrics.add((Double) line.get(metric));
+            });
         }
         return listOfMetrics;
     }
 
     public static void main(String[] args) throws Exception {
-
-        DVDTesting = csvToJSON(DVD_TEST_FILE);
-        DVDTraining = csvToJSON(DVD_TRAIN_FILE);
-        NDBenchTesting = csvToJSON(NDBENCH_TEST_FILE);
-        NDBenchTraining = csvToJSON(NDBENCH_TRAIN_FILE);
+        //transform csv files to json in same directory
+        csvToJSON(DVD_TEST_FILE + ".csv", DVD_TEST_FILE + ".json");
+        csvToJSON(DVD_TRAIN_FILE + ".csv", DVD_TRAIN_FILE + ".json");
+        csvToJSON(NDBENCH_TEST_FILE + ".csv", NDBENCH_TEST_FILE + ".json");
+        csvToJSON(NDBENCH_TRAIN_FILE + ".csv", NDBENCH_TRAIN_FILE + ".json");
 
         MyServerSocket app = new MyServerSocket(null);   //instantiate server
         System.out.println("\r\nRunning Server: " +
