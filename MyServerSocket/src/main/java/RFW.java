@@ -1,19 +1,17 @@
-import java.util.List;
-
 public class RFW {
-    enum Type { DVDtest, DVDtrain, NDBenchTest, NDBenchTrain }
-    enum Metric {CPU, NetworkIn, NetworkOut, Memory}
+    enum Type { dvdtest, dvdtrain, ndbenchtest, ndbenchtrain }
+    enum Metric {cpu, networkin, networkout, memory}
     private static int ID = 0;
     private Type benchmark;
-    private List<Metric> workloadMetric;
+    private Metric metric;
     private int batchUnit;
     private int batchID;
     private int batchSize;
 
-    public RFW(Type benchmark, List<Metric> workloadMetric, int batchUnit, int batchID, int batchSize) {
+    public RFW(String benchmark, String metric, int batchUnit, int batchID, int batchSize) {
         ID = ID + 1;
-        this.benchmark = benchmark;
-        this.workloadMetric = workloadMetric;
+        this.benchmark = Type.valueOf(benchmark.toLowerCase());
+        this.metric = Metric.valueOf(metric.toLowerCase());
         this.batchUnit = batchUnit;
         this.batchID = batchID;
         this.batchSize = batchSize;
@@ -31,16 +29,14 @@ public class RFW {
         return benchmark;
     }
 
-    public void setBenchmark(Type benchmark) {
-        this.benchmark = benchmark;
+    public void setBenchmark(String benchmark) { this.benchmark = Type.valueOf(benchmark.toLowerCase()); }
+
+    public Metric getMetric() {
+        return metric;
     }
 
-    public List<Metric> getWorkloadMetric() {
-        return workloadMetric;
-    }
-
-    public void setWorkloadMetric(List<Metric> workloadMetric) {
-        this.workloadMetric = workloadMetric;
+    public void setMetric(String metric) {
+        this.metric = Metric.valueOf(metric.toLowerCase());
     }
 
     public int getBatchUnit() {

@@ -91,10 +91,59 @@ public class MyServerSocket {
 
     private static RFD getBatch(RFW request){
 
-        //TODO Elie can you look into getting only one attribute from the json file?
-        //Here should be the logic of the program used to return a RFD (response)
+        int batchID = request.getBatchID();
+        int batchUnit = request.getBatchUnit();
+        int batchSize = request.getBatchSize();
+        List<Workload> workloadList = new LinkedList<>();
+
+        switch (request.getBenchmark()) {
+            case dvdtest:
+                workloadList = new LinkedList<>(DVDTesting);
+                break;
+            case dvdtrain:
+                workloadList = new LinkedList<>(DVDTraining);
+                break;
+            case ndbenchtest:
+                workloadList = new LinkedList<>(NDBenchTesting);
+                break;
+            case ndbenchtrain:
+                workloadList = new LinkedList<>(NDBenchTraining);
+                break;
+        }
+
+        List<Double> listOfMetrics = getListOfMetrics(workloadList, request.getMetric());
+
+        //Need to find start and end of batch and return only those lines.
+
         return null; //added this only to not have any error
 
+    }
+
+    private static List<Double> getListOfMetrics(List<Workload> workloadList, RFW.Metric metric){
+        List<Double> listOfMetrics = new LinkedList<>();
+        switch (metric){
+            case cpu:
+                workloadList.forEach(workload -> {
+                    listOfMetrics.add(Double.valueOf(workload.getCPUUtilization_Average()));
+                });
+                break;
+            case memory:
+                workloadList.forEach(workload -> {
+                    listOfMetrics.add(workload.getMemoryUtilization_Average());
+                });
+                break;
+            case networkin:
+                workloadList.forEach(workload -> {
+                    listOfMetrics.add(Double.valueOf(workload.getNetworkIn_Average()));
+                });
+                break;
+            case networkout:
+                workloadList.forEach(workload -> {
+                    listOfMetrics.add(Double.valueOf(workload.getNetworkOut_Average()));
+                });
+                break;
+        }
+        return listOfMetrics;
     }
 
     public static void main(String[] args) throws Exception {
