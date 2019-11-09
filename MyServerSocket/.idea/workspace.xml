@@ -2,19 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f8f3841-0198-4792-a6c9-ad6cd884cc4a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/RFD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/RFW.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RFWmixIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/build/classes/java/main/MyClientSocket.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/classes/MyClientSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/classes/MyClientSocket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/classes/MyClientSocket$dataAnalysis.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/src/main/java/MyClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/MyClientSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/MyServerSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/MyServerSocket.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MyServerSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyServerSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RFW.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RFW.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -191,29 +184,5 @@
     <MESSAGE value="Updated RFW and RFD formats&#10;Half implemented getBatch&#10;Function getListOfMetrics" />
     <MESSAGE value="Server receives request from client and sends response" />
     <option name="LAST_COMMIT_MESSAGE" value="Server receives request from client and sends response" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/MyServerSocket.java</url>
-          <line>65</line>
-          <properties class="MyServerSocket" method="respond">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/MyServerSocket.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/MyServerSocket.java</url>
-          <line>120</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

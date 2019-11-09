@@ -45,7 +45,7 @@ public class MyClientSocket {
                 out.flush();
             }
 
-            ObjectInputStream inFromServer = new ObjectInputStream(socket.getInputStream());
+            ObjectInputStream inFromServer = new ObjectInputStream(this.socket.getInputStream());
             JSONObject response = (JSONObject) inFromServer.readObject();
             System.out.println("Server response for request is\n" + response.toJSONString());
 

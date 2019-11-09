@@ -55,7 +55,7 @@ public class MyServerSocket {
 
             RFD response = getBatch(request); //fetch batch and data for request
 
-            DataOutputStream outToClient = new DataOutputStream(client.getOutputStream());
+            ObjectOutputStream outToClient = new ObjectOutputStream(client.getOutputStream());
             String sResponse = mapper.writeValueAsString(response); //Send the response as string
             outToClient.writeBytes(sResponse);
 
@@ -135,7 +135,7 @@ public class MyServerSocket {
             //Iterate over array and get the metric
             workloadList.forEach( workload -> {
                 JSONObject line = (JSONObject) workload;
-                listOfMetrics.add(((Long) line.get(metric)).doubleValue());
+                listOfMetrics.add(((Double) line.get(metric)));
             });
         }
         return listOfMetrics;
