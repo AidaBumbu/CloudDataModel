@@ -54,7 +54,7 @@ public class MyClientSocket {
 
 
 
-    public static void main(String[] args) throws Exception {
+   /* public static void main(String[] args) throws Exception {
 
         //Connect to server by entering IPaddress and PortNumber of Server
         MyClientSocket client = new MyClientSocket(
@@ -63,6 +63,6 @@ public class MyClientSocket {
 
         System.out.println("\r\nConnected to Server: " + client.socket.getInetAddress());
         client.start();
-    }
+    }*/
 
 }

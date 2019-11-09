@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e891d1e4-835c-45de-827c-721e9892c9a2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/RFD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RFW.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyServerSocket/src/main/java/RFWmixIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="e891d1e4-835c-45de-827c-721e9892c9a2" name="Default Changelist" comment="changes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyServerSocket/src/main/java/ClientThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyServerSocket/src/main/java/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/MyClientSocket.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/MyClientSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/MyClientSocket.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MyClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyClientSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyServerSocket/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyServerSocket/out/production/classes/MyServerSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/out/production/classes/MyServerSocket.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyServerSocket/src/main/java/MyServerSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/src/main/java/MyServerSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyServerSocket/src/main/java/RFW.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/src/main/java/RFW.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,11 +57,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MyClientSocket">
-    <configuration name="MyClientSocket" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MyClientSocket" />
+  <component name="RunManager" selected="Application.Client">
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Client" />
       <module name="untitled.main" />
-      <option name="PROGRAM_PARAMETERS" value="10.10.202.105 59041" />
+      <option name="PROGRAM_PARAMETERS" value="10.10.202.105 61821" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -97,12 +93,12 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.MyClientSocket" />
+      <item itemvalue="Application.Client" />
       <item itemvalue="Gradle.Client [dependencies]" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MyClientSocket" />
+        <item itemvalue="Application.Client" />
         <item itemvalue="Gradle.Client [dependencies]" />
       </list>
     </recent_temporary>
@@ -137,6 +133,10 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -149,6 +149,16 @@
           <url>file://$PROJECT_DIR$/src/main/java/MyClientSocket.java</url>
           <line>48</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Client.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Client.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
