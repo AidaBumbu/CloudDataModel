@@ -1,73 +1,58 @@
-import com.fasterxml.jackson.core.JsonGenerationException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.json.simple.JSONObject;
+
+import java.io.ObjectInputStream;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.util.List;
 import java.util.Scanner;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
+
 
 public class MyClientSocket {
 
     private Socket socket;
     private Scanner scanner;
+
+    private static ObjectMapper mapper = new ObjectMapper();
+
     private MyClientSocket(InetAddress serverAddress, int serverPort) throws Exception {
         this.socket = new Socket(serverAddress, serverPort);
         this.scanner = new Scanner(System.in);
     }
 
    //Sends message to the server
-    private void start() throws IOException {
+    private void start() throws Exception {
         String input;
+        String howToQuery = "Please follow the required order for your request: \n" +
+                "<BenchmarkType>,<WorkloadMetric>,<BatchUnit>,<BatchID>,<BatchSize>\n" +
+                "BenchmarkType allowed: DVDtest, DVDtrain, NDBenchTest, NDBenchTrain\n" +
+                "WorkloadMetric allowed: cpu, networkin, networkout, memory\n" +
+                "Split the fields by commas only [NO SPACES]\n";
         while (true) {
+            System.out.println(howToQuery);
             input = scanner.nextLine();
+            String[] i = input.split(",");
+            String req = null;
+            if(i.length == 5){
+                RFW request = new RFW(i[0],i[1],Integer.parseInt(i[2]),Integer.parseInt(i[3]),Integer.parseInt(i[4]));
+                req = mapper.writeValueAsString(request); //Serialize to Json
+            }
+
             PrintWriter out = new PrintWriter(this.socket.getOutputStream(), true);
-            out.println(input);
-            out.flush();
+            if (req != null){
+                out.println(req);
+                out.flush();
+            }
+
+            ObjectInputStream inFromServer = new ObjectInputStream(socket.getInputStream());
+            JSONObject response = (JSONObject) inFromServer.readObject();
+            System.out.println("Server response for request is\n" + response.toJSONString());
+
         }
     }
-public class dataAnalysis {
-        private long CPUUtilization_Average;
-        private long NetworkIn_Average;
-        private long NetworkOut_Average;
-        private long MemoryUtilization_Average;
-        private long Final_Target;
 
-        dataAnalysis(long a, long b, long c, long d, long e){
-            CPUUtilization_Average = a;
-            NetworkIn_Average = b;
-            NetworkOut_Average = c;
-            MemoryUtilization_Average = d;
-            Final_Target = e;
-        }
-}
-    //Serialize to JSON
-    private void toJSON(String[] query){
-        Pattern pattern = Pattern.compile(",");
-        try (BufferedReader in = new BufferedReader(new FileReader(query[1]))) {
-            List<dataAnalysis> players = in .lines().skip(1).map(line -> {
-                    String[] x = pattern.split(line);
-            return new dataAnalysis(( Long.parseLong(x[0])), Long.parseLong(x[1]), Long.parseLong(x[2]), Long.parseLong(x[3]), Long.parseLong(x[4]));
-    }).collect(Collectors.toList());
-            ObjectMapper mapper = new ObjectMapper();
-            mapper.enable(SerializationFeature.INDENT_OUTPUT);
-            mapper.writeValue(System.out, players);
-        } catch (JsonGenerationException e) {
-            e.printStackTrace();
-        } catch (JsonMappingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
-    }
 
     public static void main(String[] args) throws Exception {
 

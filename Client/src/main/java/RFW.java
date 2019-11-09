@@ -1,6 +1,6 @@
 public class RFW {
-    //enum Type { dvdtest, dvdtrain, ndbenchtest, ndbenchtrain }
-    //enum Metric {cpu, networkin, networkout, memory}
+    enum Type { dvdtest, dvdtrain, ndbenchtest, ndbenchtrain }
+    enum Metric {cpu, networkin, networkout, memory}
     private int ID;
     private String benchmark;
     private String metric;
@@ -8,8 +8,8 @@ public class RFW {
     private int batchID;
     private int batchSize;
 
-    public RFW(String benchmark, String metric, int batchUnit, int batchID, int batchSize, int id) {
-        this.ID = id;
+    public RFW(String benchmark, String metric, int batchUnit, int batchID, int batchSize) {
+        ID = ID + 1;
         this.benchmark = benchmark;
         this.metric = metric;
         this.batchUnit = batchUnit;
@@ -21,15 +21,15 @@ public class RFW {
         return ID;
     }
 
-    //public Type getBenchmark() {return Type.valueOf(benchmark.toLowerCase());}
+    public Type getBenchmark() {return Type.valueOf(benchmark.toLowerCase());}
 
-    public String getBenchmark() {return benchmark;}
+    //public String getBenchmark() {return benchmark;}
 
     public void setBenchmark(String benchmark) { this.benchmark = benchmark; }
 
-    //public Metric getMetric() {return Metric.valueOf(metric.toLowerCase());}
+    public Metric getMetric() {return Metric.valueOf(metric.toLowerCase());}
 
-    public String getMetric() {return metric;}
+    //public String getMetric() {return metric};
 
     public void setMetric(String metric) {
         this.metric = metric;

@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e891d1e4-835c-45de-827c-721e9892c9a2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/RFD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RFW.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyServerSocket/src/main/java/RFWmixIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/MyClientSocket.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/MyClientSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/MyClientSocket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MyClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyClientSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyServerSocket/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyServerSocket/out/production/classes/MyServerSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/out/production/classes/MyServerSocket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyServerSocket/src/main/java/MyServerSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/src/main/java/MyServerSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyServerSocket/src/main/java/RFW.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/src/main/java/RFW.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,6 +27,13 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
@@ -24,7 +43,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MyServerSocket" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -42,10 +61,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.MyClientSocket">
     <configuration name="MyClientSocket" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MyClientSocket" />
       <module name="untitled.main" />
+      <option name="PROGRAM_PARAMETERS" value="10.10.202.105 59041" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -57,9 +77,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Client [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.MyClientSocket" />
+      <item itemvalue="Gradle.Client [dependencies]" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MyClientSocket" />
+        <item itemvalue="Gradle.Client [dependencies]" />
       </list>
     </recent_temporary>
   </component>
@@ -92,5 +136,21 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/build.gradle</url>
+          <line>4</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/MyClientSocket.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

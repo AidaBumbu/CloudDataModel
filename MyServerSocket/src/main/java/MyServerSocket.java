@@ -1,5 +1,6 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import org.jetbrains.annotations.NotNull;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -43,16 +44,30 @@ public class MyServerSocket {
                 new InputStreamReader(client.getInputStream()));
         while ((data = in.readLine()) != null) {
             System.out.println("\r\nMessage from " + clientAddress + ": " + data); //For testing purpose, can be removed afterward
-            RFW request = mapper.readValue(data, RFW.class);; //deserialize json to request
-            respond(request);
+            JSONParser jsonParser = new JSONParser();
+            Object obj = jsonParser.parse(data);
+            JSONObject request = (JSONObject) obj;
+           // ObjectMapper map = new ObjectMapper();
+            //map.enable(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES);
+           // map.addMixIn(RFW.class, RFWmixIn.class);
+           // RFW request = mapper.readValue(data, RFW.class); //deserialize json to request
+            //respond(request, client);
+
+            RFD response = getBatch(request); //fetch batch and data for request
+
+            DataOutputStream outToClient = new DataOutputStream(client.getOutputStream());
+            String sResponse = mapper.writeValueAsString(response); //Send the response as string
+            outToClient.writeBytes(sResponse);
+
+
         }
     }
 
-    private void respond(RFW request) throws Exception {
-        Socket client = this.server.accept();
-        DataOutputStream outToClient = new DataOutputStream(client.getOutputStream());
+    private void respond(JSONObject request, Socket client) throws Exception {
+
         RFD response = getBatch(request); //fetch batch and data for request
 
+        DataOutputStream outToClient = new DataOutputStream(client.getOutputStream());
         String sResponse = mapper.writeValueAsString(response); //Send the response as string
         outToClient.writeBytes(sResponse);
     }
@@ -79,36 +94,36 @@ public class MyServerSocket {
         }
     }
 
-    private static RFD getBatch(RFW request) throws Exception{
+    private static RFD getBatch(@NotNull JSONObject request) throws Exception{
 
-        int batchID = request.getBatchID() - 1; //first batch will be batch 0
-        int batchUnit = request.getBatchUnit();
-        int batchSize = request.getBatchSize();
+        int batchID = ((Long) request.get("batchID")).intValue() - 1; //first batch will be batch 0
+        int batchUnit = ((Long) request.get("batchUnit")).intValue();
+        int batchSize = ((Long) request.get("batchSize")).intValue();
         String jsonFile = null;
         List<Workload> workloadList = new LinkedList<>();
 
-        switch (request.getBenchmark()) {
-            case dvdtest:
+        switch ((String) request.get("benchmark")) {
+            case "dvdtest":
                 jsonFile = DVD_TEST_FILE + ".json";
                 break;
-            case dvdtrain:
+            case "dvdtrain":
                 jsonFile = DVD_TRAIN_FILE + ".json";
                 break;
-            case ndbenchtest:
+            case "ndbenchtest":
                 jsonFile = NDBENCH_TEST_FILE + ".json";
                 break;
-            case ndbenchtrain:
+            case "ndbenchtrain":
                 jsonFile = NDBENCH_TRAIN_FILE + ".json";
                 break;
         }
 
-        List<Double> listOfMetrics = getListOfMetrics(jsonFile, request.getMetric());
+        List<Double> listOfMetrics = getListOfMetrics(jsonFile, (String) request.get("metric"));
         List<Double> batchMetrics = listOfMetrics.subList(batchUnit*batchID, (batchID + batchSize)*batchUnit);
 
-        return new RFD(request.getID(),batchID+batchSize-1, batchMetrics);
+        return new RFD(((Long) request.get("id")).intValue(),batchID+batchSize-1, batchMetrics);
     }
 
-    private static List<Double> getListOfMetrics(String jsonFile, RFW.Metric metric) throws Exception{
+    private static List<Double> getListOfMetrics(String jsonFile, String metric) throws Exception{
         List<Double> listOfMetrics = new LinkedList<>();
         JSONParser jsonParser = new JSONParser();
         try (FileReader reader = new FileReader(jsonFile))
@@ -120,7 +135,7 @@ public class MyServerSocket {
             //Iterate over array and get the metric
             workloadList.forEach( workload -> {
                 JSONObject line = (JSONObject) workload;
-                listOfMetrics.add((Double) line.get(metric));
+                listOfMetrics.add(((Long) line.get(metric)).doubleValue());
             });
         }
         return listOfMetrics;
