@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e891d1e4-835c-45de-827c-721e9892c9a2" name="Default Changelist" comment="changes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyServerSocket/src/main/java/ClientThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyServerSocket/src/main/java/Server.java" afterDir="false" />
+    <list default="true" id="e891d1e4-835c-45de-827c-721e9892c9a2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/MyClientSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/MyClientSocket.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyClientSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyServerSocket/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyServerSocket/out/production/classes/MyServerSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/out/production/classes/MyServerSocket.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyServerSocket/src/main/java/MyServerSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/src/main/java/MyServerSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyServerSocket/src/main/java/ClientThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/src/main/java/ClientThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyServerSocket/src/main/java/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyServerSocket/src/main/java/Server.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -115,6 +111,14 @@
       <updated>1572368749168</updated>
       <workItem from="1572662052851" duration="2172000" />
     </task>
+    <task id="LOCAL-00001" summary="stuff">
+      <created>1573282905510</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1573282905510</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,7 +139,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes" />
+    <MESSAGE value="stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -152,12 +157,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Client.java</url>
-          <line>63</line>
+          <line>68</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Client.java</url>
-          <line>58</line>
+          <line>59</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>

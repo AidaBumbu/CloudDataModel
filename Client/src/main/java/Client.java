@@ -45,6 +45,7 @@ public class Client {
         scanner = new Scanner(System.in);
         System.out.println("\r\nConnected to Server: " + socket.getInetAddress());
         start();
+        startThread();
 
     }
 
@@ -56,13 +57,17 @@ public class Client {
         public void run() {
             try {
                 //Connect to the socket's input stream
-                ObjectInputStream inFromServer = new ObjectInputStream(socket.getInputStream());
+                //ObjectInputStream inFromServer = new ObjectInputStream(socket.getInputStream());
+                BufferedReader inFromClient = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                String clientInput;
+                String data = null;
 
                 //always read received messages and output them to client
-                while (true) {
+                while ((data = inFromClient.readLine()) != null) {
+                    System.out.println("\r\nMessage: " + data);
 
-                    JSONObject response = (JSONObject) inFromServer.readObject();
-                    System.out.println("Server response for request is\n" + response.toJSONString());
+                    //JSONObject response = (JSONObject) inFromServer.readObject();
+                    //System.out.println("Server response for request is\n" + response.toJSONString());
                 }
 
             }
