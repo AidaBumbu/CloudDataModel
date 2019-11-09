@@ -47,11 +47,6 @@ public class MyServerSocket {
             JSONParser jsonParser = new JSONParser();
             Object obj = jsonParser.parse(data);
             JSONObject request = (JSONObject) obj;
-           // ObjectMapper map = new ObjectMapper();
-            //map.enable(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES);
-           // map.addMixIn(RFW.class, RFWmixIn.class);
-           // RFW request = mapper.readValue(data, RFW.class); //deserialize json to request
-            //respond(request, client);
 
             RFD response = getBatch(request); //fetch batch and data for request
 
@@ -63,14 +58,6 @@ public class MyServerSocket {
         }
     }
 
-    private void respond(JSONObject request, Socket client) throws Exception {
-
-        RFD response = getBatch(request); //fetch batch and data for request
-
-        DataOutputStream outToClient = new DataOutputStream(client.getOutputStream());
-        String sResponse = mapper.writeValueAsString(response); //Send the response as string
-        outToClient.writeBytes(sResponse);
-    }
 
     private InetAddress getSocketAddress() {
         return this.server.getInetAddress();
@@ -117,7 +104,8 @@ public class MyServerSocket {
                 break;
         }
 
-        List<Double> listOfMetrics = getListOfMetrics(jsonFile, (String) request.get("metric"));
+
+        List<Double> listOfMetrics = getListOfMetrics(jsonFile, ((String) request.get("metric")).toLowerCase());
         List<Double> batchMetrics = listOfMetrics.subList(batchUnit*batchID, (batchID + batchSize)*batchUnit);
 
         return new RFD(((Long) request.get("id")).intValue(),batchID+batchSize-1, batchMetrics);
@@ -126,22 +114,51 @@ public class MyServerSocket {
     private static List<Double> getListOfMetrics(String jsonFile, String metric) throws Exception{
         List<Double> listOfMetrics = new LinkedList<>();
         JSONParser jsonParser = new JSONParser();
+
         try (FileReader reader = new FileReader(jsonFile))
         {
             //Read JSON file
             Object obj = jsonParser.parse(reader);
             JSONArray workloadList = (JSONArray) obj;
 
-            //Iterate over array and get the metric
-            workloadList.forEach( workload -> {
-                JSONObject line = (JSONObject) workload;
-                listOfMetrics.add(((Long) line.get(metric)).doubleValue());
-            });
+            switch (metric){
+                case "cpu":
+                    //Iterate over array and get the metric
+                    workloadList.forEach( workload -> {
+                        JSONObject line = (JSONObject) workload;
+                        listOfMetrics.add(((Long) line.get("cpuutilization_Average")).doubleValue());
+                    });
+                    break;
+                case "networkin":
+                    //Iterate over array and get the metric
+                    workloadList.forEach( workload -> {
+                        JSONObject line = (JSONObject) workload;
+                        listOfMetrics.add(((Long) line.get("networkIn_Average")).doubleValue());
+                    });
+                    break;
+                case "networkout":
+                    //Iterate over array and get the metric
+                    workloadList.forEach( workload -> {
+                        JSONObject line = (JSONObject) workload;
+                        listOfMetrics.add(((Long) line.get("networkOut_Average")).doubleValue());
+                    });
+                    break;
+                case "memory":
+                    //Iterate over array and get the metric
+                    workloadList.forEach( workload -> {
+                        JSONObject line = (JSONObject) workload;
+                        listOfMetrics.add((Double) line.get("memoryUtilization_Average"));
+                    });
+                    break;
+            }
+
+
         }
         return listOfMetrics;
     }
 
-    public static void main(String[] args) throws Exception {
+
+   /* public static void main(String[] args) throws Exception {
         //transform csv files to json in same directory
         csvToJSON(DVD_TEST_FILE + ".csv", DVD_TEST_FILE + ".json");
         csvToJSON(DVD_TRAIN_FILE + ".csv", DVD_TRAIN_FILE + ".json");
@@ -153,6 +170,6 @@ public class MyServerSocket {
                 "Host=" + app.getSocketAddress().getHostAddress() +
                 " Port=" + app.getPort());
         app.listen();
-    }
+    }*/
 
 }

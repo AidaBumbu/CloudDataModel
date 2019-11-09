@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f8f3841-0198-4792-a6c9-ad6cd884cc4a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/RFD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/RFW.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RFWmixIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ClientThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/build/classes/java/main/MyClientSocket.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/out/production/classes/MyClientSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/classes/MyClientSocket.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/src/main/java/MyClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/MyClientSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/MyServerSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/MyServerSocket.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MyServerSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyServerSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RFW.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RFW.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,9 +65,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MyServerSocket">
-    <configuration name="MyServerSocket" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MyServerSocket" />
+  <component name="RunManager" selected="Application.Server">
+    <configuration name="Server" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Server" />
       <module name="Server.main" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -102,6 +98,10 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.Server" />
+      <item itemvalue="Gradle.MyServerSocket [dependencies]" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.MyServerSocket [dependencies]" />
@@ -163,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573257546760</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Changes">
+      <created>1573268889680</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1573268889680</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,28 +197,21 @@
     <MESSAGE value="Added test/train for DVD and NDBench&#10;Added response function for client" />
     <MESSAGE value="Updated RFW and RFD formats&#10;Half implemented getBatch&#10;Function getListOfMetrics" />
     <MESSAGE value="Server receives request from client and sends response" />
-    <option name="LAST_COMMIT_MESSAGE" value="Server receives request from client and sends response" />
+    <MESSAGE value="Changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/MyServerSocket.java</url>
-          <line>65</line>
-          <properties class="MyServerSocket" method="respond">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/MyServerSocket.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="29" />
+          <line>110</line>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/MyServerSocket.java</url>
-          <line>120</line>
-          <option name="timeStamp" value="30" />
+          <url>file://$PROJECT_DIR$/src/main/java/Server.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
