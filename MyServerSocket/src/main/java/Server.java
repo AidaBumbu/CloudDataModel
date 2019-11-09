@@ -68,7 +68,7 @@ public class Server {
                     //add the new client to the client's array
                     Clients.add(new ClientThread(clientCount, connectionSocket, Clients, clientName));
                     //start the new client's thread
-                    Clients.get(Clients.size() - 1).start();
+                    Clients.get(0).start();
                 }
                 catch (Exception ex) { }
             }

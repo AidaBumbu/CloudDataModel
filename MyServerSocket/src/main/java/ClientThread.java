@@ -107,34 +107,25 @@ public class ClientThread extends Thread{
 
     public void run() {
         try {
+
             //create a buffer reader and connect it to the client's connection socket
             BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
             String clientInput;
             DataOutputStream outToClient;
+            String data = null;
 
-            while (true) {
-                clientInput = inFromClient.readLine();
-                //check the start of the message
-                if (clientInput.startsWith("Exit")) { //Disconnect client
-                    for (int i = 0; i < clients.size(); i++) {
-                        if (clients.get(i).number == number) {
-                            clients.remove(i);
-                        }
-                    }
-
-                } else if (clientInput.startsWith("{")) {
-                    ObjectMapper mapper = new ObjectMapper();
-                    JSONParser jsonParser = new JSONParser();
-                    Object obj = jsonParser.parse(clientInput);
-                    JSONObject request = (JSONObject) obj;
-
-                    RFD response = getBatch(request); //fetch batch and data for request
-                    String sResponse = mapper.writeValueAsString(response); //Send json response to client
+            while ((data = inFromClient.readLine()) != null) {
+                System.out.println("\r\nMessage: " + data); //For testing purpose, can be removed afterward
+                JSONParser jsonParser = new JSONParser();
+                Object obj = jsonParser.parse(data);
+                JSONObject request = (JSONObject) obj;
+                ObjectMapper mapper = new ObjectMapper();
+                RFD response = getBatch(request); //fetch batch and data for request
+                String sResponse = mapper.writeValueAsString(response); //Send json response to client
 
                     outToClient = new DataOutputStream(connectionSocket.getOutputStream());
                     outToClient.writeBytes(sResponse);
 
-                }
             }
         }
         catch(Exception ex) {
