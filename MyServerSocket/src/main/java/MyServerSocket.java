@@ -55,9 +55,15 @@ public class MyServerSocket {
 
             RFD response = getBatch(request); //fetch batch and data for request
 
-            ObjectOutputStream outToClient = new ObjectOutputStream(client.getOutputStream());
-            String sResponse = mapper.writeValueAsString(response); //Send the response as string
-            outToClient.writeBytes(sResponse);
+            DataOutputStream outToClient = new DataOutputStream(client.getOutputStream());
+            //String sResponse = mapper.writeValueAsString(response); //Send the response as string
+            StringBuilder builder = new StringBuilder();
+            String sResponse = response.getSamplesRequested().toString();
+
+            System.out.print(sResponse);
+            outToClient.writeUTF(sResponse);
+            outToClient.flush();
+            //outToClient.writeObject(response);
 
 
         }
@@ -101,7 +107,7 @@ public class MyServerSocket {
         int batchSize = ((Long) request.get("batchSize")).intValue();
         String jsonFile = null;
         List<Workload> workloadList = new LinkedList<>();
-
+        String metric = null;
         switch ((String) request.get("benchmark")) {
             case "dvdtest":
                 jsonFile = DVD_TEST_FILE + ".json";
@@ -116,8 +122,20 @@ public class MyServerSocket {
                 jsonFile = NDBENCH_TRAIN_FILE + ".json";
                 break;
         }
+        switch ((String) request.get("metric")){
+            case "cpu":
+                metric = "cpuutilization_Average";
+                break;
+            case"networkin":
+                metric = "networkIn_Average";
+                break;
+            case"networkout":
+                metric = "networkOut_Average";
+            case "memory":
+                metric = "memoryUtilization_Average";
+        }
 
-        List<Double> listOfMetrics = getListOfMetrics(jsonFile, (String) request.get("metric"));
+        List<Double> listOfMetrics = getListOfMetrics(jsonFile, metric);
         List<Double> batchMetrics = listOfMetrics.subList(batchUnit*batchID, (batchID + batchSize)*batchUnit);
 
         return new RFD(((Long) request.get("id")).intValue(),batchID+batchSize-1, batchMetrics);
@@ -125,18 +143,24 @@ public class MyServerSocket {
 
     private static List<Double> getListOfMetrics(String jsonFile, String metric) throws Exception{
         List<Double> listOfMetrics = new LinkedList<>();
+
         JSONParser jsonParser = new JSONParser();
         try (FileReader reader = new FileReader(jsonFile))
         {
             //Read JSON file
+
             Object obj = jsonParser.parse(reader);
             JSONArray workloadList = (JSONArray) obj;
-
+            for(Object o : workloadList){
+                if(o instanceof JSONObject){
+                    listOfMetrics.add(Double.parseDouble(((JSONObject) o).get(metric).toString()));
+                }
+            }
             //Iterate over array and get the metric
-            workloadList.forEach( workload -> {
-                JSONObject line = (JSONObject) workload;
-                listOfMetrics.add(((Double) line.get(metric)));
-            });
+//            workloadList.forEach( workload -> {
+//                JSONObject line = (JSONObject) workload;
+//                listOfMetrics.add((Double) line.get(metric));
+//            });
         }
         return listOfMetrics;
     }

@@ -3,11 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="8f8f3841-0198-4792-a6c9-ad6cd884cc4a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/classes/MyClientSocket$dataAnalysis.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/classes/MyClientSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/classes/MyClientSocket.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/src/main/java/MyClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/MyClientSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/MyServerSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/MyServerSocket.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MyServerSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyServerSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Workload Data/DVD-testing.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Workload Data/DVD-testing.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Workload Data/DVD-training.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Workload Data/DVD-training.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Workload Data/NDBench-testing.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Workload Data/NDBench-testing.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Workload Data/NDBench-training.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Workload Data/NDBench-training.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +26,16 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -95,6 +109,10 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.MyServerSocket" />
+      <item itemvalue="Gradle.MyServerSocket [dependencies]" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.MyServerSocket [dependencies]" />
@@ -184,5 +202,16 @@
     <MESSAGE value="Updated RFW and RFD formats&#10;Half implemented getBatch&#10;Function getListOfMetrics" />
     <MESSAGE value="Server receives request from client and sends response" />
     <option name="LAST_COMMIT_MESSAGE" value="Server receives request from client and sends response" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/MyServerSocket.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

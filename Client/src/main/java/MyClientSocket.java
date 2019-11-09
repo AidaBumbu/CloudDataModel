@@ -2,6 +2,7 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.simple.JSONObject;
 
+import java.io.DataInputStream;
 import java.io.ObjectInputStream;
 import java.io.PrintWriter;
 import java.net.InetAddress;
@@ -45,9 +46,9 @@ public class MyClientSocket {
                 out.flush();
             }
 
-            ObjectInputStream inFromServer = new ObjectInputStream(this.socket.getInputStream());
-            JSONObject response = (JSONObject) inFromServer.readObject();
-            System.out.println("Server response for request is\n" + response.toJSONString());
+            DataInputStream inFromServer = new DataInputStream(this.socket.getInputStream());
+          //  JSONObject response = (JSONObject) inFromServer.readObject();
+            System.out.println("Server response for request is\n" + inFromServer.readUTF());
 
         }
     }
